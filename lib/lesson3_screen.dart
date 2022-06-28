@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  int soLanBamNut = 0;
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'My app', // used by the OS task switcher
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My Test Home Page'),
-        ),
-        body: Center(
-            child: Column(
+      home: buildHomeScreen(),
+    ),
+  );
+}
+
+Widget buildHomeScreen() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('My Test Home Page'),
+    ),
+    body: Container(
+        alignment: Alignment.center,
+        width: 390,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Day la Page 2'),
-            ElevatedButton(
-                onPressed: () {
-                  soLanBamNut++;
-                  print('nut da duoc bam! $soLanBamNut');
-                },
-                child: Text("Click me!"))
+            Text('Home Screen'),
+            SizedBox(
+              height: 20,
+            ),
+            Image.network(
+              'https://images.sudouest.fr/2020/09/13/5f5e4a9b66a4bd4d1cd490cf/widescreen/1000x500/passe-par-le-servette.jpg',
+              width: 250,
+            ),
           ],
         )),
-      ),
-    ),
   );
 }
