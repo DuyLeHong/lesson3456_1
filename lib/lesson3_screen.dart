@@ -27,7 +27,7 @@ class MyHomeScreen extends StatelessWidget {
             children: [
               Text(
                 'Home Screen',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 20,
@@ -37,7 +37,7 @@ class MyHomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Image.network(
-                'https://images.sudouest.fr/2020/09/13/5f5e4a9b66a4bd4d1cd490cf/widescreen/1000x500/passe-par-le-servette.jpg',
+                'https://codefresher.vn/wp-content/uploads/2022/01/banner_2022_flutter.jpg',
                 width: 250,
               ),
               SizedBox(
