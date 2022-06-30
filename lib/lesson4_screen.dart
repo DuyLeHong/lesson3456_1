@@ -26,58 +26,62 @@ class MyStatelessWidget extends StatelessWidget {
         title: const Text('Expanded Column Sample'),
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Container(
-                color: Colors.blue,
-                height: 100,
-                width: 100,
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  color: Colors.amber,
+        child: Padding( 
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  color: Colors.blue,
+                  height: 100,
                   width: 100,
-                  height: 300,
                 ),
-              ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        color: Colors.redAccent,
-                        width: 100,
-                      ),
-                    ),
-                    Container(
-                      color: Colors.grey,
-                      width: 60,
-                    ),
-                    Expanded(
-                      child: Container(
-                        color: Colors.brown,
-                        width: 100,
-                      ),
-                    ),
-                  ],
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    color: Colors.amber,
+                    width: 100,
+                    height: 300,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.greenAccent,
+                Expanded(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        fit: FlexFit.tight,
+                        flex: 2,
+                        child: Container(
+                          color: Colors.redAccent,
+                          width: 100,
+                        ),
+                      ),
+                      Container(
+                        color: Colors.grey,
+                        width: 60,
+                      ),
+                      Flexible(
+                        child: Container(
+                          color: Colors.brown,
+                          width: 100,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.greenAccent,
+                    width: 100,
+                    height: 300,
+                  ),
+                ),
+                Container(
+                  color: Colors.blue,
+                  height: 100,
                   width: 100,
-                  height: 300,
                 ),
-              ),
-              Container(
-                color: Colors.blue,
-                height: 100,
-                width: 100,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
