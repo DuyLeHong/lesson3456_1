@@ -18,7 +18,8 @@ class MyHomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('My Test Home Page'),
       ),
-      body: Container(
+      body: SafeArea(
+        child: Container(
           alignment: Alignment.center,
           width: 390,
           child: Column(
@@ -50,7 +51,9 @@ class MyHomeScreen extends StatelessWidget {
                   },
                   child: Text('Click me!')),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
