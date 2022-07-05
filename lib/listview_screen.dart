@@ -71,8 +71,8 @@ class _ListViewScreenState extends State<ListViewScreen> {
                     setState(() {
                       if (countAddItem != 0) {
                         countAddItem--;
-                        entries.removeAt(0);
-                        colorCodes.removeAt(0);
+                        entries.removeLast();
+                        colorCodes.removeLast();
                       }
                     });
 
