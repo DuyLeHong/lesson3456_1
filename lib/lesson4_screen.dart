@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson3456_1/listview_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -81,6 +82,17 @@ class MyStatelessWidget extends StatelessWidget {
                   ),
                 ),
                 buildDecorationText(),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                        return ListViewScreen();
+                      }));
+                    },
+                    child: Text('Go to screen 2')),
               ],
             ),
           ),
@@ -89,7 +101,7 @@ class MyStatelessWidget extends StatelessWidget {
     );
   }
 
-  Widget buildDecorationText () {
+  Widget buildDecorationText() {
     return SizedBox(
       width: 250,
       height: 250,
@@ -130,7 +142,6 @@ class MyStatelessWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       children: <Widget>[
         Container(
-
           width: 100,
           height: 100,
           color: Colors.red,
