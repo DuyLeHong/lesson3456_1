@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatefulWidget {
-
   @override
   State<ListViewScreen> createState() => _ListViewScreenState();
 }
 
 class _ListViewScreenState extends State<ListViewScreen> {
-
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -54,20 +51,19 @@ class _ListViewScreenState extends State<ListViewScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-
                     setState(() {
                       countAddItem++;
                       entries.add(countAddItem.toString());
                       colorCodes.add(200 - countAddItem * 20);
                     });
-
                   },
                   child: Text('Add item'),
                 ),
-                SizedBox(width: 20,),
+                SizedBox(
+                  width: 20,
+                ),
                 ElevatedButton(
                   onPressed: () {
-
                     setState(() {
                       if (countAddItem != 0) {
                         countAddItem--;
@@ -75,13 +71,11 @@ class _ListViewScreenState extends State<ListViewScreen> {
                         colorCodes.removeLast();
                       }
                     });
-
                   },
                   child: Text('Remove item'),
                 ),
               ],
             ),
-
             SizedBox(
               height: 10,
             ),
@@ -104,23 +98,31 @@ class _ListViewScreenState extends State<ListViewScreen> {
   List<int> colorCodes = <int>[600, 500, 400, 300, 200];
 
   Widget buidListView2() {
-
     return Container(
       height: 200,
-      child: ListView.builder(
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.green[colorCodes[index]],
-              child: Center(child: Text('Item ${entries[index]}')),
-            );
-          }),
+      child: ListView.separated(
+        itemCount: entries.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 50,
+            color: Colors.green[colorCodes[index]],
+            child: Center(child: Text('Item ${entries[index]}')),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider(
+            thickness: 1,
+            color: Colors.brown,
+            indent: 10,
+            endIndent: 10,
+          );
+        },
+      ),
     );
   }
 
-  // @override
-  // void setState(VoidCallback fn) {
-  //
-  // }
+// @override
+// void setState(VoidCallback fn) {
+//
+// }
 }
