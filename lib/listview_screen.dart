@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ListViewScreen extends StatelessWidget {
+class ListViewScreen extends StatefulWidget {
+
+  @override
+  State<ListViewScreen> createState() => _ListViewScreenState();
+}
+
+class _ListViewScreenState extends State<ListViewScreen> {
+
   @override
   Widget build(BuildContext context) {
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -41,20 +49,61 @@ class ListViewScreen extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+
+                    setState(() {
+                      countAddItem++;
+                      entries.add(countAddItem.toString());
+                      colorCodes.add(200 - countAddItem * 20);
+                    });
+
+                  },
+                  child: Text('Add item'),
+                ),
+                SizedBox(width: 20,),
+                ElevatedButton(
+                  onPressed: () {
+
+                    setState(() {
+                      if (countAddItem != 0) {
+                        countAddItem--;
+                        entries.removeAt(0);
+                        colorCodes.removeAt(0);
+                      }
+                    });
+
+                  },
+                  child: Text('Remove item'),
+                ),
+              ],
+            ),
+
+            SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('Back to Screen 1')),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Back to Screen 1'),
+            ),
           ],
         ),
       ),
     );
   }
 
+  int countAddItem = 0;
+
+  List<String> entries = <String>['A', 'B', 'C', 'D', 'E'];
+
+  List<int> colorCodes = <int>[600, 500, 400, 300, 200];
+
   Widget buidListView2() {
-    final List<String> entries = <String>['A', 'B', 'C', 'D', 'E'];
-    final List<int> colorCodes = <int>[600, 500, 400, 300, 200];
 
     return Container(
       height: 200,
@@ -69,4 +118,9 @@ class ListViewScreen extends StatelessWidget {
           }),
     );
   }
+
+  // @override
+  // void setState(VoidCallback fn) {
+  //
+  // }
 }
