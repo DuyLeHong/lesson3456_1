@@ -88,6 +88,13 @@ class _ListViewScreenState extends State<ListViewScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
     );
   }
 
@@ -103,10 +110,16 @@ class _ListViewScreenState extends State<ListViewScreen> {
       child: ListView.separated(
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.green[colorCodes[index]],
-            child: Center(child: Text('Item ${entries[index]}')),
+          return InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Item ${entries[index]}')));
+            },
+            child: Container(
+              height: 50,
+              //color: Colors.green[colorCodes[index]],
+              child: Center(child: Text('Item ${entries[index]}')),
+            ),
           );
         },
         separatorBuilder: (BuildContext context, int index) {
