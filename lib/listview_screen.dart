@@ -110,12 +110,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
           );
         },
         separatorBuilder: (BuildContext context, int index) {
-          return const Divider(
-            thickness: 1,
-            color: Colors.brown,
-            indent: 10,
-            endIndent: 10,
-          );
+          return const Divider();
         },
       ),
     );

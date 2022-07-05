@@ -10,9 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: _title,
       home: MyStatelessWidget(),
+      theme: ThemeData(
+          dividerTheme: const DividerThemeData(
+        thickness: 0.5,
+        color: Colors.brown,
+        indent: 10,
+        endIndent: 10,
+      )),
     );
   }
 }
