@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: MyStatelessWidget(),
+      initialRoute: ROUTES_HOME_SCREEN,
       routes: {
+        ROUTES_HOME_SCREEN: (context) => const MyStatelessWidget(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         ROUTES_LISTVIEW_SCREEN: (context) => ListViewScreen('Du lieu truyen tu Screen 1'),
       },
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+const ROUTES_HOME_SCREEN = '/';
 const ROUTES_LISTVIEW_SCREEN = '/listview_screen';
 
 class MyStatelessWidget extends StatelessWidget {
