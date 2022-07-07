@@ -18,6 +18,13 @@ class _ListViewScreenState extends State<ListViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_sData == null || _sData == '') {
+      var args = ModalRoute.of(context)?.settings.arguments.toString();
+
+      if (args != null)
+        _sData = args;
+    }
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(

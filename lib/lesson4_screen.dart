@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       routes: {
         ROUTES_HOME_SCREEN: (context) => const MyStatelessWidget(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        ROUTES_LISTVIEW_SCREEN: (context) => ListViewScreen('Du lieu truyen tu Screen 1'),
+        ROUTES_LISTVIEW_SCREEN: (context) => ListViewScreen(''),
       },
       theme: ThemeData(
           dividerTheme: const DividerThemeData(
@@ -112,14 +112,16 @@ class MyStatelessWidget extends StatelessWidget {
                   },
                   child: Text('Go to screen 2'),
                 ),
-
                 SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red)),
                   onPressed: () async {
-                    var result = await Navigator.pushNamed(context, ROUTES_LISTVIEW_SCREEN);
+                    var result = await Navigator.pushNamed(
+                        context, ROUTES_LISTVIEW_SCREEN,
+                        arguments: 'Du lieu truyen tu Screen 1');
 
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(result.toString())));
