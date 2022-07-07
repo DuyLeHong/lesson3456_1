@@ -13,6 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: MyStatelessWidget(),
+      routes: {
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        ROUTES_LISTVIEW_SCREEN: (context) => ListViewScreen('Du lieu truyen tu Screen 1'),
+      },
       theme: ThemeData(
           dividerTheme: const DividerThemeData(
         thickness: 0.5,
@@ -23,6 +27,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+const ROUTES_LISTVIEW_SCREEN = '/listview_screen';
 
 class MyStatelessWidget extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
@@ -93,16 +99,31 @@ class MyStatelessWidget extends StatelessWidget {
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () async {
-                      var result = await Navigator.push(context,
-                          MaterialPageRoute(builder: (BuildContext context) {
-                        return ListViewScreen('Du lieu truyen tu Screen 1');
-                      }));
+                  onPressed: () async {
+                    var result = await Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return ListViewScreen('Du lieu truyen tu Screen 1');
+                    }));
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(result.toString())));
-                    },
-                    child: Text('Go to screen 2')),
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(result.toString())));
+                  },
+                  child: Text('Go to screen 2'),
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  onPressed: () async {
+                    var result = await Navigator.pushNamed(context, ROUTES_LISTVIEW_SCREEN);
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(result.toString())));
+                  },
+                  child: Text('Go to screen 2'),
+                ),
               ],
             ),
           ),

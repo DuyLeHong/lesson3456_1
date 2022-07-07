@@ -23,7 +23,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
       appBar: AppBar(
         title: Text(_sData),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context, entries);
             }),
