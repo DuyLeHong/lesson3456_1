@@ -93,11 +93,14 @@ class MyStatelessWidget extends StatelessWidget {
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
+                    onPressed: () async {
+                      var result = await Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
                         return ListViewScreen('Du lieu truyen tu Screen 1');
                       }));
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(result.toString())));
                     },
                     child: Text('Go to screen 2')),
               ],
