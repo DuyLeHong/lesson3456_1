@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatefulWidget {
-
   String _sData;
 
   ListViewScreen(this._sData, {Key? key}) : super(key: key);
@@ -13,7 +12,6 @@ class ListViewScreen extends StatefulWidget {
 }
 
 class _ListViewScreenState extends State<ListViewScreen> {
-
   String _sData;
 
   _ListViewScreenState(this._sData);
@@ -24,6 +22,11 @@ class _ListViewScreenState extends State<ListViewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_sData),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, entries);
+            }),
       ),
       body: SafeArea(
         child: Column(
