@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatefulWidget {
+
+  String _sData;
+
+  ListViewScreen(this._sData, {Key? key}) : super(key: key);
+
+  //ListViewScreen(String s);
+
   @override
-  State<ListViewScreen> createState() => _ListViewScreenState();
+  State<ListViewScreen> createState() => _ListViewScreenState(_sData);
 }
 
 class _ListViewScreenState extends State<ListViewScreen> {
+
+  String _sData;
+
+  _ListViewScreenState(this._sData);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ListView Screen'),
+        title: Text(_sData),
       ),
       body: SafeArea(
         child: Column(
