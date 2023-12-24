@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
+void main() { // lesson 3
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -39,21 +39,21 @@ class MyHomeScreen extends StatelessWidget {
                 ),
                 Image.network(
                   'https://codefresher.vn/wp-content/uploads/2022/01/banner_2022_flutter.jpg',
-                  width: 120,
+                  width: 100,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Image.asset(
                   'assets/Banner-QC-ChaoHe2022-1024x1024.png',
-                  width: 120,
+                  width: 100,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Image.asset(
                   'assets/images/banner_2022_android.jpg',
-                  width: 120,
+                  width: 100,
                 ),
                 SizedBox(
                   height: 20,
